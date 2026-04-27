@@ -7,21 +7,45 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-2">
-    <div class="max-w-md mx-auto space-y-2 pt-2">
-        <div class="text-center">
+    <div class="max-w-md mx-auto pt-2 pb-10">
+        <div class="text-center mb-3">
             <h1 class="text-2xl font-bold text-blue-800">Gram Samadhan Portal</h1>
-            <p class="text-xs text-gray-600">Lakhisarai Gramin Sewa</p>
+            <p class="text-[10px] text-gray-600">Lakhisarai Gramin Sewa</p>
         </div>
-        <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-600">
-            <form action="https://formspree.io/f/xzdyqkab" method="POST" enctype="multipart/form-data" class="space-y-3">
+        
+        <div class="bg-white p-5 rounded-2xl shadow-lg border-t-4 border-blue-600">
+            <form action="https://formspree.io/f/xzdyqkab" method="POST" enctype="multipart/form-data" class="space-y-4">
+                
                 <div>
-                    <label class="block text-xs font-medium text-gray-700">Aapka Naam</label>
-                    <input type="text" name="naam" placeholder="Naam likhein" class="w-full p-2 border rounded-lg text-sm" required>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Aapka Naam</label>
+                    <input type="text" name="naam" placeholder="Naam likhein" class="w-full p-2.5 border rounded-xl text-sm bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" required>
                 </div>
-                <div class="grid grid-cols-2 gap-2">
+
+                <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-medium text-gray-700">Mobile Number</label>
-                        <input type="tel" name="mobile" placeholder="10 digits" class="w-full p-2 border rounded-lg text-sm" required>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Mobile No.</label>
+                        <input type="tel" name="mobile" placeholder="10 digits" class="w-full p-2.5 border rounded-xl text-sm bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" required>
                     </div>
                     <div>
-                        <label class="
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Ward/Area</label>
+                        <input type="text" name="ward" placeholder="Ward No." class="w-full p-2.5 border rounded-xl text-sm bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Samasya ka Vivran</label>
+                    <textarea name="samasya" placeholder="Yahan विस्तार se likhein..." class="w-full p-2.5 border rounded-xl text-sm bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none" rows="3" required></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Photo Upload (Saboot)</label>
+                    <input type="file" name="upload" class="block w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer">
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-sm shadow-md hover:bg-blue-700 active:scale-95 transition-all">Sarkar ko Bhejein</button>
+            </form>
+        </div>
+        <p class="text-[9px] text-center text-gray-400 mt-4 px-4">Aapki shikayat seedha adhikariyon tak pahunchane mein hum madad karenge.</p>
+    </div>
+</body>
+</html>
