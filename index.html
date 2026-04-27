@@ -10,25 +10,18 @@
     <div class="max-w-md mx-auto space-y-2 pt-2">
         <div class="text-center">
             <h1 class="text-2xl font-bold text-blue-800">Gram Samadhan Portal</h1>
-            <p class="text-xs text-gray-600">Gaon ki samasyaon ka digital samadhan</p>
+            <p class="text-xs text-gray-600">Lakhisarai Gramin Sewa</p>
         </div>
         <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-600">
-            <form action="https://formspree.io/f/xzdyqkab" method="POST" class="space-y-3">
+            <form action="https://formspree.io/f/xzdyqkab" method="POST" enctype="multipart/form-data" class="space-y-3">
                 <div>
                     <label class="block text-xs font-medium text-gray-700">Aapka Naam</label>
                     <input type="text" name="naam" placeholder="Naam likhein" class="w-full p-2 border rounded-lg text-sm" required>
                 </div>
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Mobile Number</label>
-                    <input type="tel" name="mobile" placeholder="10 digits" class="w-full p-2 border rounded-lg text-sm" required>
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-gray-700">Apni Samasya Likhein</label>
-                    <textarea name="samasya" placeholder="Yahan likhein..." class="w-full p-2 border rounded-lg text-sm" rows="2" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold hover:bg-blue-700 transition">Submit Karein</button>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700">Mobile Number</label>
+                        <input type="tel" name="mobile" placeholder="10 digits" class="w-full p-2 border rounded-lg text-sm" required>
+                    </div>
+                    <div>
+                        <label class="
