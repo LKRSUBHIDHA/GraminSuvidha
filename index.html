@@ -3,103 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ग्राम समाधान पोर्टल - बिहार</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>ग्राम सेवा - बिहार डिजिटल पोर्टल</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&display=swap');
-        body { font-family: 'Hind', sans-serif; }
+        body { font-family: 'Arial', sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
+        header { background: #1a5276; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
+        
+        /* फॉर्म स्टाइल */
+        .complaint-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        h2 { color: #1a5276; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        
+        label { display: block; margin: 15px 0 5px; font-weight: bold; color: #333; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
+        
+        .submit-btn { background: #e74c3c; color: white; border: none; padding: 15px 25px; border-radius: 6px; cursor: pointer; width: 100%; font-size: 18px; font-weight: bold; margin-top: 20px; }
+        .submit-btn:hover { background: #c0392b; }
+        
+        .contact-list { margin-top: 40px; background: #d5dbdb; padding: 20px; border-radius: 10px; font-size: 14px; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-8 px-4 text-center shadow-xl rounded-b-[40px]">
-        <h1 class="text-2xl font-extrabold">ग्राम समाधान पोर्टल</h1>
-        <p class="text-blue-200 text-[10px] uppercase tracking-widest font-bold">बिहार ग्रामीण डिजिटल सेवा</p>
-    </header>
+<header>
+    <h1>ग्राम विकास एवं शिकायत पोर्टल (बिहार)</h1>
+    <p>अपनी समस्या सीधे DM या SP ऑफिस तक पहुँचाएँ</p>
+</header>
 
-    <main class="max-w-md mx-auto px-4 -mt-8 pb-12">
-        <div class="bg-white p-5 rounded-3xl shadow-2xl border border-gray-100">
-            <h2 class="text-md font-bold text-gray-700 mb-5 flex items-center gap-2">
-                <i class="fas fa-edit text-blue-600"></i> अपनी शिकायत दर्ज करें
-            </h2>
+<div class="container">
+    <div class="complaint-box">
+        <h2>📝 शिकायत पंजीकरण फॉर्म</h2>
+        
+        <form action="https://formspree.io/f/xojyoqnn" method="POST">
             
-            <form action="https://formspree.io/f/xojysqnn" method="POST" class="space-y-4">
-                <div class="grid grid-cols-2 gap-3">
-                    <input type="text" name="Name" placeholder="आपका नाम" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
-                    <input type="tel" name="Mobile" placeholder="मोबाइल नंबर" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
-                </div>
+            <label>आपका पूरा नाम:</label>
+            <input type="text" name="User_Name" placeholder="अपना नाम लिखें" required>
 
-                <div>
-                    <label class="block text-[10px] font-bold text-gray-400 ml-2 mb-1">जिला चुनें</label>
-                    <select id="district" name="District" onchange="loadBlocks()" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
-                        <option value="">-- जिला चुनें --</option>
-                        </select>
-                </div>
+            <label>अपना जिला चुनें (बिहार):</label>
+            <select name="District" required>
+                <option value="">-- जिला चुनें --</option>
+                <option value="Patna">पटना (Patna)</option>
+                <option value="Gaya">गया (Gaya)</option>
+                <option value="Muzaffarpur">मुजफ्फरपुर (Muzaffarpur)</option>
+                <option value="Siwan">सीवान (Siwan)</option>
+                <option value="Saran">सारण (Saran)</option>
+                </select>
 
-                <div class="grid grid-cols-2 gap-3">
-                    <select id="block" name="Block" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
-                        <option value="">Block चुनें</option>
-                    </select>
-                    <input type="text" name="Village" placeholder="गाँव/वार्ड" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
-                </div>
+            <label>शिकायत का विभाग:</label>
+            <select name="Department" required>
+                <option value="DM_Office">जिलाधिकारी (DM Office) - विकास/जमीन/पेंशन</option>
+                <option value="SP_Office">पुलिस अधीक्षक (SP Office) - सुरक्षा/क्राइम</option>
+                <option value="Electricity">बिजली विभाग</option>
+            </select>
 
-                <textarea name="Complaint" placeholder="अपनी समस्या विस्तार से लिखें..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl h-28 outline-none" required></textarea>
+            <label>मोबाइल नंबर:</label>
+            <input type="tel" name="Mobile" placeholder="अपना 10 अंकों का नंबर" required>
 
-                <button type="submit" class="w-full bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg active:scale-95 transition-all">
-                    शिकायात सबमिट करें
-                </button>
-            </form>
-        </div>
-    </main>
+            <label>शिकायत का विवरण:</label>
+            <textarea name="Message" rows="5" placeholder="अपनी समस्या के बारे में विस्तार से लिखें..." required></textarea>
 
-    <footer class="text-center py-6">
-        <p class="text-[11px] text-gray-400">लखीसराय, बिहार | help@gramin.in</p>
-    </footer>
+            <button type="submit" class="submit-btn">शिकायत दर्ज करें</button>
+        </form>
+    </div>
 
-    <script>
-        const districtData = {
-            "Araria": ["Araria", "Forbesganj", "Jokihat"], "Arwal": ["Arwal", "Kaler"], "Aurangabad": ["Aurangabad", "Daudnagar"],
-            "Banka": ["Banka", "Amarpur"], "Begusarai": ["Begusarai", "Barauni"], "Bhagalpur": ["Jagdishpur", "Sultanganj"],
-            "Bhojpur": ["Arrah", "Jagdishpur"], "Buxar": ["Buxar", "Dumraon"], "Darbhanga": ["Darbhanga", "Benipur"],
-            "East Champaran": ["Motihari", "Raxaul"], "Gaya": ["Gaya Sadar", "Bodh Gaya"], "Gopalganj": ["Gopalganj", "Hathua"],
-            "Jamui": ["Jamui", "Jhajha"], "Jehanabad": ["Jehanabad", "Makhdumpur"], "Kaimur": ["Bhabua", "Mohania"],
-            "Katihar": ["Katihar", "Barsoi"], "Khagaria": ["Khagaria", "Gogri"], "Kishanganj": ["Kishanganj", "Bahadurganj"],
-            "Lakhisarai": ["Lakhisarai Sadar", "Surajgarha", "Barahiya", "Halsi", "Ramgarh Chowk", "Chanan", "Pipariya"],
-            "Madhepura": ["Madhepura", "Udakishunganj"], "Madhubani": ["Madhubani", "Jainagar"], "Munger": ["Munger", "Jamalpur"],
-            "Muzaffarpur": ["Muzaffarpur", "Motipur"], "Nalanda": ["Bihar Sharif", "Rajgir"], "Nawada": ["Nawada", "Rajauli"],
-            "Patna": ["Patna Sadar", "Danapur", "Barh"], "Purnia": ["Purnia", "Banmankhi"], "Rohtas": ["Sasaram", "Dehri"],
-            "Saharsa": ["Saharsa", "Simri Bakhtiarpur"], "Samastipur": ["Samastipur", "Rosera"], "Saran": ["Chapra", "Sonepur"],
-            "Sheikhpura": ["Sheikhpura", "Barbigha"], "Sheohar": ["Sheohar"], "Sitamarhi": ["Sitamarhi", "Pupri"],
-            "Siwan": ["Siwan", "Maharajganj"], "Supaul": ["Supaul", "Triveniganj"], "Vaishali": ["Hajipur", "Mahua"],
-            "West Champaran": ["Bettiah", "Bagaha"]
-        };
+    <div class="contact-list">
+        <h3>💡 जरूरी सूचना:</h3>
+        <p>यह पोर्टल आपकी शिकायतों को संकलित कर संबंधित विभाग को ईमेल द्वारा प्रेषित करने में मदद करता है। आपातकालीन स्थिति में कृपया सीधे <b>112</b> पर कॉल करें।</p>
+    </div>
+</div>
 
-        const districtSelect = document.getElementById("district");
-
-        // Direct Load: Districts ko turant bharne ke liye
-        const sortedDistricts = Object.keys(districtData).sort();
-        sortedDistricts.forEach(dist => {
-            const opt = document.createElement("option");
-            opt.value = dist;
-            opt.textContent = dist;
-            districtSelect.appendChild(opt);
-        });
-
-        function loadBlocks() {
-            const blockSelect = document.getElementById("block");
-            const selectedDistrict = districtSelect.value;
-            blockSelect.innerHTML = '<option value="">Block चुनें</option>';
-            
-            if (selectedDistrict && districtData[selectedDistrict]) {
-                districtData[selectedDistrict].forEach(block => {
-                    const option = document.createElement("option");
-                    option.value = block;
-                    option.textContent = block;
-                    blockSelect.appendChild(option);
-                });
-            }
-        }
-    </script>
 </body>
 </html>
