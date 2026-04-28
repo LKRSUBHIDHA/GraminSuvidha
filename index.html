@@ -3,84 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मेरी सिंपल वेबसाइट</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ग्राम सेवा - बिहार डिजिटल पोर्टल</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&display=swap');
+        body { font-family: 'Hind', sans-serif; }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-gray-800">
 
-    <nav>
-        <div class="logo">MyBrand</div>
-        <ul>
-            <li><a href="#">होम</a></li>
-            <li><a href="#">बारे में</a></li>
-            <li><a href="#">संपर्क</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <h1>मेरी पहली वेबसाइट में आपका स्वागत है</h1>
-        <p>यह एक बहुत ही सरल HTML और CSS से बनी वेबसाइट है।</p>
-        <button onclick="showAlert()">क्लिक करें</button>
+    <header class="bg-[#1a3a5f] text-white py-10 px-6 text-center shadow-lg">
+        <h1 class="text-2xl font-bold">ग्राम विकास एवं शिकायत पोर्टल</h1>
+        <p class="text-blue-200 text-xs mt-2">अपनी समस्या सीधे संबंधित विभाग तक पहुँचाएँ</p>
     </header>
 
-    <script src="script.js"></script>
+    <main class="max-w-md mx-auto px-4 -mt-8 pb-10">
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="text-lg font-bold text-gray-700 mb-6 border-b pb-2 flex items-center gap-2">
+                <i class="fas fa-file-alt text-blue-600"></i> शिकायत पंजीकरण फ़ॉर्म
+            </h2>
+            
+            <form action="https://formspree.io/f/xojysqnn" method="POST" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 mb-1">आपका पूरा नाम:</label>
+                    <input type="text" name="Name" placeholder="अपना नाम लिखें" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg outline-none focus:border-blue-500" required>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 mb-1">अपना जिला चुनें (बिहार):</label>
+                    <select id="district" name="District" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg outline-none focus:border-blue-500" required>
+                        <option value="">-- जिला चुनें --</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 mb-1">संबंधित विभाग/अधिकारी:</label>
+                    <select id="officer" name="Officer" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg outline-none focus:border-blue-500" required>
+                        <option value="">-- अधिकारी चुनें --</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 mb-1">मोबाइल नंबर:</label>
+                    <input type="tel" name="Mobile" placeholder="10 Digits" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg outline-none" required>
+                </div>
+
+                <textarea name="Complaint" placeholder="अपनी समस्या विस्तार से लिखें..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg h-32 outline-none focus:border-blue-500" required></textarea>
+
+                <button type="submit" class="w-full bg-red-600 text-white font-bold py-3 rounded-lg shadow-md hover:bg-red-700 transition-all">
+                    शिकायत दर्ज करें
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const districts = [
+            "Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", 
+            "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur", 
+            "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", 
+            "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", 
+            "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"
+        ];
+
+        const officers = [
+            "जिलाधिकारी (DM Office) - विकास/जमीन/पेंशन",
+            "पुलिस अधीक्षक (SP Office) - सुरक्षा/क्राइम",
+            "बिजली विभाग (Electricity Dept)",
+            "प्रखंड विकास पदाधिकारी (BDO Office)",
+            "अंचलाधिकारी (CO Office) - राशन/जमीन रसीद",
+            "नगर निगम/नगर परिषद",
+            "शिक्षा विभाग (DPO/DEO Office)"
+        ];
+
+        window.onload = function() {
+            const distSelect = document.getElementById('district');
+            districts.sort().forEach(dist => {
+                let opt = document.createElement('option');
+                opt.value = dist;
+                opt.textContent = dist;
+                distSelect.appendChild(opt);
+            });
+
+            const offSelect = document.getElementById('officer');
+            officers.forEach(off => {
+                let opt = document.createElement('option');
+                opt.value = off;
+                opt.textContent = off;
+                offSelect.appendChild(opt);
+            });
+        };
+    </script>
 </body>
 </html>
-/* बेसिक सेटिंग */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-/* नेविगेशन बार */
-nav {
-    background: #333;
-    color: white;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-/* मुख्य कंटेंट */
-header {
-    text-align: center;
-    padding: 100px 20px;
-    background: white;
-}
-
-h1 {
-    color: #333;
-}
-
-button {
-    padding: 10px 20px;
-    background: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #218838;
-}
-function showAlert() {
-    alert("नमस्ते! आपने बटन पर क्लिक किया।");
-}
