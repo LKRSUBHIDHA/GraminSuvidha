@@ -13,97 +13,93 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-10 px-4 text-center shadow-xl rounded-b-[50px]">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-md rounded-full mb-4 border border-white/30">
-            <i class="fas fa-landmark text-3xl text-yellow-400"></i>
-        </div>
-        <h1 class="text-3xl font-extrabold tracking-tight">ग्राम समाधान पोर्टल</h1>
-        <p class="text-blue-200 mt-2 text-xs uppercase tracking-widest font-bold">बिहार ग्रामीण डिजिटल सेवा केंद्र</p>
+    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-8 px-4 text-center shadow-xl rounded-b-[40px]">
+        <h1 class="text-2xl font-extrabold">ग्राम समाधान पोर्टल</h1>
+        <p class="text-blue-200 text-[10px] uppercase tracking-widest font-bold">बिहार ग्रामीण डिजिटल सेवा</p>
     </header>
 
-    <main class="max-w-md mx-auto px-4 -mt-10 pb-12">
-        <div class="bg-white p-6 rounded-3xl shadow-2xl border border-gray-100">
-            <h2 class="text-lg font-bold text-gray-700 mb-6 flex items-center gap-2">
+    <main class="max-w-md mx-auto px-4 -mt-8 pb-12">
+        <div class="bg-white p-5 rounded-3xl shadow-2xl border border-gray-100">
+            <h2 class="text-md font-bold text-gray-700 mb-5 flex items-center gap-2">
                 <i class="fas fa-edit text-blue-600"></i> अपनी शिकायत दर्ज करें
             </h2>
             
             <form action="https://formspree.io/f/xojysqnn" method="POST" class="space-y-4">
-                
                 <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 mb-1">आपका नाम</label>
-                        <input type="text" name="Name" placeholder="नाम लिखें" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 mb-1">मोबाइल नंबर</label>
-                        <input type="tel" name="Mobile" placeholder="10 Digits" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
-                    </div>
+                    <input type="text" name="Name" placeholder="आपका नाम" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
+                    <input type="tel" name="Mobile" placeholder="मोबाइल नंबर" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
                 </div>
 
                 <div>
-                    <label class="block text-[11px] font-bold text-gray-500 mb-1">अपना जिला चुनें</label>
-                    <select id="district" name="District" onchange="loadBlocks()" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" required>
+                    <label class="block text-[10px] font-bold text-gray-400 ml-2 mb-1">जिला चुनें</label>
+                    <select id="district" name="District" onchange="loadBlocks()" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
                         <option value="">-- जिला चुनें --</option>
-                    </select>
+                        </select>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 mb-1">पंचायत/ब्लॉक</label>
-                        <select id="block" name="Block" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" required>
-                            <option value="">Block चुनें</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 mb-1">गाँव/वार्ड</label>
-                        <input type="text" name="Village" placeholder="Village" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
-                    </div>
+                    <select id="block" name="Block" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
+                        <option value="">Block चुनें</option>
+                    </select>
+                    <input type="text" name="Village" placeholder="गाँव/वार्ड" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none" required>
                 </div>
 
-                <div>
-                    <label class="block text-[11px] font-bold text-gray-500 mb-1">समस्या का विवरण</label>
-                    <textarea name="Complaint" placeholder="अपनी समस्या विस्तार से लिखें..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl h-32 focus:ring-2 focus:ring-blue-500 outline-none transition-all" required></textarea>
-                </div>
+                <textarea name="Complaint" placeholder="अपनी समस्या विस्तार से लिखें..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl h-28 outline-none" required></textarea>
 
-                <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 transform active:scale-95">
-                    <i class="fas fa-paper-plane"></i> शिकायत सबमिट करें
+                <button type="submit" class="w-full bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg active:scale-95 transition-all">
+                    शिकायात सबमिट करें
                 </button>
             </form>
         </div>
     </main>
 
-    <footer class="bg-gray-900 text-white pt-10 pb-6 px-6 rounded-t-[50px] text-center">
-        <p class="text-sm text-gray-400">लखीसराय, बिहार | help@gramin.in</p>
-        <p class="text-[10px] text-gray-600 italic mt-4 italic">© 2026 ग्राम समाधान पोर्टल</p>
+    <footer class="text-center py-6">
+        <p class="text-[11px] text-gray-400">लखीसराय, बिहार | help@gramin.in</p>
     </footer>
 
     <script>
-        // Bihar Districts and Blocks Data
         const districtData = {
-            "Araria": ["Araria", "Forbesganj", "Jokihat", "Kursakanta", "Narpatganj", "Palasi", "Raniganj", "Sikti", "Bhargama"],
-            "Arwal": ["Arwal", "Kaler", "Karpi", "Kurtha", "Sonbhadra Banshi Suryapur"],
-            "Aurangabad": ["Aurangabad", "Barun", "Daudnagar", "Deo", "Goh", "Haspura", "Kutumba", "Madanpur", "Nabinagar", "Obra", "Rafiganj"],
-            "Banka": ["Banka", "Amarpur", "Bausi", "Belhar", "Chandan", "Fullidumar", "Katoriya", "Laxmipur", "Rajoun", "Sambhuganj"],
-            "Begusarai": ["Begusarai", "Barauni", "Teghra", "Matihani", "Bachhwara", "Mansoorchak", "Naokothi", "Bakhri", "Balia"],
-            "Bhagalpur": ["Jagdishpur", "Nathnagar", "Sabour", "Sultanganj", "Kahalgaon", "Pirpainty", "Navgachhiya"],
-            "Bhojpur": ["Arrah", "Agiaon", "Barhara", "Behea", "Charpokhari", "Jagdishpur", "Piro", "Shahpur"],
-            "Buxar": ["Buxar", "Itarhi", "Chausa", "Rajpur", "Dumraon", "Nawanagar", "Brahampur"],
-            "Darbhanga": ["Darbhanga Sadar", "Hayaghat", "Baheri", "Benipur", "Biraul", "Kusheshwar Asthan", "Jale"],
-            "East Champaran": ["Motihari", "Turkaulia", "Areraj", "Chakia", "Dhaka", "Raxaul", "Sugauli"],
-            "Gaya": ["Gaya Sadar", "Bodh Gaya", "Dobhi", "Sherghati", "Imamganj", "Belaganj", "Wazirganj", "Tekari"],
-            "Gopalganj": ["Gopalganj", "Kuchaikote", "Barauli", "Sidhwaliya", "Hathua", "Bhorey", "Katiya"],
-            "Jamui": ["Jamui", "Khaira", "Gidhaur", "Jhajha", "Sono", "Chakai", "Sikandra"],
-            "Jehanabad": ["Jehanabad", "Makhdumpur", "Kako", "Ghoshi", "Modanganj", "Hulasganj"],
-            "Kaimur": ["Bhabua", "Mohania", "Kudra", "Durgawati", "Ramgarh", "Chand", "Chainpur"],
-            "Katihar": ["Katihar", "Hasanganj", "Falka", "Korha", "Barari", "Manihari", "Azamnagar", "Barsoi"],
-            "Khagaria": ["Khagaria", "Alauli", "Chautham", "Mansi", "Beldaur", "Gogri", "Parbatta"],
-            "Kishanganj": ["Kishanganj", "Pothia", "Kochadhaman", "Thakurganj", "Bahadurganj", "Dighalbank"],
+            "Araria": ["Araria", "Forbesganj", "Jokihat"], "Arwal": ["Arwal", "Kaler"], "Aurangabad": ["Aurangabad", "Daudnagar"],
+            "Banka": ["Banka", "Amarpur"], "Begusarai": ["Begusarai", "Barauni"], "Bhagalpur": ["Jagdishpur", "Sultanganj"],
+            "Bhojpur": ["Arrah", "Jagdishpur"], "Buxar": ["Buxar", "Dumraon"], "Darbhanga": ["Darbhanga", "Benipur"],
+            "East Champaran": ["Motihari", "Raxaul"], "Gaya": ["Gaya Sadar", "Bodh Gaya"], "Gopalganj": ["Gopalganj", "Hathua"],
+            "Jamui": ["Jamui", "Jhajha"], "Jehanabad": ["Jehanabad", "Makhdumpur"], "Kaimur": ["Bhabua", "Mohania"],
+            "Katihar": ["Katihar", "Barsoi"], "Khagaria": ["Khagaria", "Gogri"], "Kishanganj": ["Kishanganj", "Bahadurganj"],
             "Lakhisarai": ["Lakhisarai Sadar", "Surajgarha", "Barahiya", "Halsi", "Ramgarh Chowk", "Chanan", "Pipariya"],
-            "Madhepura": ["Madhepura", "Murliganj", "Gwalpara", "Bihariganj", "Chausa", "Udakishunganj"],
-            "Madhubani": ["Madhubani", "Rajnagar", "Pandaul", "Jhanjharpur", "Madhepur", "Jainagar", "Benipatti"],
-            "Munger": ["Munger Sadar", "Jamalpur", "Bariarpur", "Dharhara", "Kharagpur", "Tarapur"],
-            "Muzaffarpur": ["Muzaffarpur Sadar", "Kanti", "Motipur", "Paroo", "Saraiya", "Minapur", "Bochahan"],
-            "Nalanda": ["Bihar Sharif", "Rahuia", "Noorsarai", "Harnaut", "Chandi", "Rajgir", "Hilsa", "Islampur"],
-            "Nawada": ["Nawada", "Hisua", "Akbarpur", "Govindpur", "Rajauli", "Sirdala", "Roh", "Warisaliganj"],
-            "Patna": ["Patna Sadar", "Phulwari Sharif", "Fatuha", "Bakhtiarpur", "Bihta", "Danapur", "Paliganj", "Masaurhi"],
-            "Purnia": ["Purnia East", "Kasba", "Banmankhi", "Dhamdaha", "Barhara", "Rupa
+            "Madhepura": ["Madhepura", "Udakishunganj"], "Madhubani": ["Madhubani", "Jainagar"], "Munger": ["Munger", "Jamalpur"],
+            "Muzaffarpur": ["Muzaffarpur", "Motipur"], "Nalanda": ["Bihar Sharif", "Rajgir"], "Nawada": ["Nawada", "Rajauli"],
+            "Patna": ["Patna Sadar", "Danapur", "Barh"], "Purnia": ["Purnia", "Banmankhi"], "Rohtas": ["Sasaram", "Dehri"],
+            "Saharsa": ["Saharsa", "Simri Bakhtiarpur"], "Samastipur": ["Samastipur", "Rosera"], "Saran": ["Chapra", "Sonepur"],
+            "Sheikhpura": ["Sheikhpura", "Barbigha"], "Sheohar": ["Sheohar"], "Sitamarhi": ["Sitamarhi", "Pupri"],
+            "Siwan": ["Siwan", "Maharajganj"], "Supaul": ["Supaul", "Triveniganj"], "Vaishali": ["Hajipur", "Mahua"],
+            "West Champaran": ["Bettiah", "Bagaha"]
+        };
+
+        const districtSelect = document.getElementById("district");
+
+        // Direct Load: Districts ko turant bharne ke liye
+        const sortedDistricts = Object.keys(districtData).sort();
+        sortedDistricts.forEach(dist => {
+            const opt = document.createElement("option");
+            opt.value = dist;
+            opt.textContent = dist;
+            districtSelect.appendChild(opt);
+        });
+
+        function loadBlocks() {
+            const blockSelect = document.getElementById("block");
+            const selectedDistrict = districtSelect.value;
+            blockSelect.innerHTML = '<option value="">Block चुनें</option>';
+            
+            if (selectedDistrict && districtData[selectedDistrict]) {
+                districtData[selectedDistrict].forEach(block => {
+                    const option = document.createElement("option");
+                    option.value = block;
+                    option.textContent = block;
+                    blockSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
