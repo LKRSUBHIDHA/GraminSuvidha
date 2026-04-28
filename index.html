@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ग्राम समाधान - बिहार जन सेवा</title>
+    <title>ग्राम समाधान पोर्टल - बिहार</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -42,7 +42,7 @@
 
                 <div>
                     <label class="block text-[11px] font-bold text-gray-500 mb-1">अपना जिला चुनें</label>
-                    <select id="district" name="District" onchange="loadBlocks()" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none" required>
+                    <select id="district" name="District" onchange="loadBlocks()" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" required>
                         <option value="">-- जिला चुनें --</option>
                     </select>
                 </div>
@@ -50,13 +50,13 @@
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-[11px] font-bold text-gray-500 mb-1">पंचायत/ब्लॉक</label>
-                        <select id="block" name="Block" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none" required>
+                        <select id="block" name="Block" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" required>
                             <option value="">Block चुनें</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold text-gray-500 mb-1">गाँव/वार्ड</label>
-                        <input type="text" name="Village" placeholder="Village" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none" required>
+                        <input type="text" name="Village" placeholder="Village" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required>
                     </div>
                 </div>
 
@@ -70,57 +70,40 @@
                 </button>
             </form>
         </div>
-
-        <div class="mt-8 bg-white p-5 rounded-3xl shadow-sm border border-gray-100">
-            <h3 class="text-md font-bold text-blue-900 mb-2">यह पोर्टल क्या है?</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">
-                यह एक स्वतंत्र मंच है जहाँ बिहार के नागरिक अपनी समस्या दर्ज कर सकते हैं। हम आपकी शिकायतों को संबंधित अधिकारियों तक पहुँचाने का प्रयास करते हैं।
-            </p>
-        </div>
     </main>
 
     <footer class="bg-gray-900 text-white pt-10 pb-6 px-6 rounded-t-[50px] text-center">
-        <div class="max-w-md mx-auto">
-            <h4 class="font-bold text-blue-400 mb-2 uppercase text-xs tracking-widest">संपर्क</h4>
-            <p class="text-sm text-gray-400 mb-6">लखीसराय, बिहार | help@gramin.in</p>
-            <hr class="border-gray-800 mb-6">
-            <p class="text-[10px] text-gray-600 italic">यह एक स्वतंत्र डिजिटल पहल है। © 2026 ग्राम समाधान</p>
-        </div>
+        <p class="text-sm text-gray-400">लखीसराय, बिहार | help@gramin.in</p>
+        <p class="text-[10px] text-gray-600 italic mt-4 italic">© 2026 ग्राम समाधान पोर्टल</p>
     </footer>
 
     <script>
+        // Bihar Districts and Blocks Data
         const districtData = {
             "Araria": ["Araria", "Forbesganj", "Jokihat", "Kursakanta", "Narpatganj", "Palasi", "Raniganj", "Sikti", "Bhargama"],
             "Arwal": ["Arwal", "Kaler", "Karpi", "Kurtha", "Sonbhadra Banshi Suryapur"],
             "Aurangabad": ["Aurangabad", "Barun", "Daudnagar", "Deo", "Goh", "Haspura", "Kutumba", "Madanpur", "Nabinagar", "Obra", "Rafiganj"],
-            "Banka": ["Banka", "Amarpur", "Bausi", "Belhar", "Chandan", "Fullidumar", "Katoriya", "Laxmipur", "Rajoun", "Sambhuganj", "Tahar"],
-            "Begusarai": ["Begusarai", "Barauni", "Teghra", "Matihani", "Bachhwara", "Mansoorchak", "Naokothi", "Cheria Bariarpur", "Sahebpur Kamal", "Bakhri", "Garhpura", "Chhorahi", "Khodawandpur", "Bhagwanpur", "Birpur", "Balia"],
-            "Bhagalpur": ["Bhagalpur Sadar", "Jagdishpur", "Nathnagar", "Sabour", "Goradih", "Shahkund", "Sultanganj", "Kahalgaon", "Pirpainty", "Sanokha", "Bihpur", "Narayanpur", "Navgachhiya", "Ismailpur", "Gopalpur", "Rangrachowk"],
-            "Bhojpur": ["Arrah", "Agiaon", "Barhara", "Behea", "Charpokhari", "Garhani", "Jagdishpur", "Koilwar", "Piro", "Sahar", "Sandesh", "Shahpur", "Tarari", "Udwantnagar"],
-            "Buxar": ["Buxar", "Itarhi", "Chausa", "Rajpur", "Dumraon", "Nawanagar", "Brahampur", "Kesath", "Chakki", "Simri"],
-            "Darbhanga": ["Darbhanga Sadar", "Hayaghat", "Baheri", "Benipur", "Alinagar", "Ghanshyampur", "Kiratpur", "Gaudabauram", "Biraul", "Kusheshwar Asthan", "Hanuman Nagar", "Bahadurpur", "Keoti", "Singhchwara", "Jale", "Tardih"],
-            "East Champaran": ["Motihari", "Turkaulia", "Harsidhi", "Paharpur", "Areraj", "Sangrampur", "Kesaria", "Kalyanpur", "Chakia", "Mehsi", "Madhuban", "Patahi", "Pakridayal", "Dhaka", "Raxaul", "Sugauli"],
-            "Gaya": ["Gaya Sadar", "Bodh Gaya", "Dobhi", "Sherghati", "Amas", "Gurua", "Imamganj", "Dumaria", "Belaganj", "Khizirsarai", "Atri", "Wazirganj", "Fatehpur", "Tekari", "Konch"],
-            "Gopalganj": ["Gopalganj", "Kuchaikote", "Barauli", "Sidhwaliya", "Baikunthpur", "Thawe", "Manjha", "Hathua", "Uchakagaon", "Phulwariya", "Bhorey", "Katiya", "Vijayipur"],
-            "Jamui": ["Jamui", "Khaira", "Gidhaur", "Islant Nagar Aliganj", "Jhajha", "Sono", "Chakai", "Barhat", "Laxmipur", "Sikandra"],
-            "Jehanabad": ["Jehanabad", "Makhdumpur", "Kako", "Ghoshi", "Modanganj", "Hulasganj", "Ratni Faridpur"],
-            "Kaimur": ["Bhabua", "Mohania", "Kudra", "Durgawati", "Ramgarh", "Nuaon", "Chand", "Chainpur", "Bhagwanpur", "Rampur", "Adhaura"],
-            "Katihar": ["Katihar", "Hasanganj", "Dandkhora", "Falka", "Korha", "Mansahi", "Pranpur", "Barari", "Sameli", "Kursela", "Manihari", "Amdabad", "Azamnagar", "Kadwa", "Barsoi"],
+            "Banka": ["Banka", "Amarpur", "Bausi", "Belhar", "Chandan", "Fullidumar", "Katoriya", "Laxmipur", "Rajoun", "Sambhuganj"],
+            "Begusarai": ["Begusarai", "Barauni", "Teghra", "Matihani", "Bachhwara", "Mansoorchak", "Naokothi", "Bakhri", "Balia"],
+            "Bhagalpur": ["Jagdishpur", "Nathnagar", "Sabour", "Sultanganj", "Kahalgaon", "Pirpainty", "Navgachhiya"],
+            "Bhojpur": ["Arrah", "Agiaon", "Barhara", "Behea", "Charpokhari", "Jagdishpur", "Piro", "Shahpur"],
+            "Buxar": ["Buxar", "Itarhi", "Chausa", "Rajpur", "Dumraon", "Nawanagar", "Brahampur"],
+            "Darbhanga": ["Darbhanga Sadar", "Hayaghat", "Baheri", "Benipur", "Biraul", "Kusheshwar Asthan", "Jale"],
+            "East Champaran": ["Motihari", "Turkaulia", "Areraj", "Chakia", "Dhaka", "Raxaul", "Sugauli"],
+            "Gaya": ["Gaya Sadar", "Bodh Gaya", "Dobhi", "Sherghati", "Imamganj", "Belaganj", "Wazirganj", "Tekari"],
+            "Gopalganj": ["Gopalganj", "Kuchaikote", "Barauli", "Sidhwaliya", "Hathua", "Bhorey", "Katiya"],
+            "Jamui": ["Jamui", "Khaira", "Gidhaur", "Jhajha", "Sono", "Chakai", "Sikandra"],
+            "Jehanabad": ["Jehanabad", "Makhdumpur", "Kako", "Ghoshi", "Modanganj", "Hulasganj"],
+            "Kaimur": ["Bhabua", "Mohania", "Kudra", "Durgawati", "Ramgarh", "Chand", "Chainpur"],
+            "Katihar": ["Katihar", "Hasanganj", "Falka", "Korha", "Barari", "Manihari", "Azamnagar", "Barsoi"],
             "Khagaria": ["Khagaria", "Alauli", "Chautham", "Mansi", "Beldaur", "Gogri", "Parbatta"],
-            "Kishanganj": ["Kishanganj", "Pothia", "Kochadhaman", "Thakurganj", "Bahadurganj", "Dighalbank", "Terhagachh"],
+            "Kishanganj": ["Kishanganj", "Pothia", "Kochadhaman", "Thakurganj", "Bahadurganj", "Dighalbank"],
             "Lakhisarai": ["Lakhisarai Sadar", "Surajgarha", "Barahiya", "Halsi", "Ramgarh Chowk", "Chanan", "Pipariya"],
-            "Madhepura": ["Madhepura", "Gamhariya", "Ghailarh", "Murliganj", "Gwalpara", "Bihariganj", "Kishunganj", "Chausa", "Puraini", "Alamnagar", "Kumarkhand", "Singheshwar", "Udakishunganj"],
-            "Madhubani": ["Madhubani", "Rajnagar", "Pandaul", "Rahika", "Jhanjharpur", "Lakhnaur", "Madhepur", "Andhratharhi", "Babu Barhi", "Khajauli", "Ladania", "Jainagar", "Basopatti", "Harlakhi", "Benipatti", "Bisfi", "Ghoghardiha", "Phulparas", "Laukahi"],
-            "Munger": ["Munger Sadar", "Jamalpur", "Bariarpur", "Dharhara", "Kharagpur", "Tetia Bambar", "Tarapur", "Asarganj", "Sangrampur"],
-            "Muzaffarpur": ["Muzaffarpur Sadar", "Kanti", "Motipur", "Baruraj", "Paroo", "Saraiya", "Marwan", "Minapur", "Bochahan", "Musahri", "Sakra", "Muraul", "Kurhani", "Dholi", "Bandra", "Aurai", "Katra"],
-            "Nalanda": ["Bihar Sharif", "Rahuia", "Noorsarai", "Harnaut", "Chandi", "Tharthari", "Giriyak", "Asthawan", "Sarmera", "Bind", "Rajgir", "Silao", "Ben", "Islampur", "Ekangarsarai", "Hilsa", "Karai Parsurai", "Nagar Nausa", "Parbalpur"],
-            "Nawada": ["Nawada", "Hisua", "Narhat", "Meskaur", "Akbarpur", "Govindpur", "Rajauli", "Sirdala", "Roh", "Kashichak", "Pakribarawan", "Warisaliganj", "Kauwacol", "Nardiganj"],
-            "Patna": ["Patna Sadar", "Phulwari Sharif", "Sampatchak", "Daniawan", "Fatuha", "Khusrupur", "Athmalgola", "Mokama", "Barh", "Bakhtiarpur", "Bihta", "Maner", "Danapur", "Naubatpur", "Paliganj", "Dulhin Bazar", "Bikram", "Masaurhi", "Punpun", "Dhanarua"],
-            "Purnia": ["Purnia East", "Kasba", "Srinagar", "Jalalgarh", "Krityanand Nagar", "Banmankhi", "Dhamdaha", "Barhara", "Rupauli", "Bhawanipur", "Baisi", "Baisa", "Amour", "Dagruwa"],
-            "Rohtas": ["Sasaram", "Dehri", "Akotdhi Gola", "Rajpur", "Nokha", "Sanjhauli", "Bikramganj", "Karakat", "Nasriganj", "Dawath", "Suryapura", "Dinara", "Kochas", "Chenari", "Sheosagar", "Nauhatta", "Rohtas", "Tilauthu"],
-            "Saharsa": ["Saharsa", "Kahra", "Saur Bazar", "Patarghat", "Mahishi", "Sonbarsa", "Nauhatta", "Salkhua", "Banma Itahari", "Simri Bakhtiarpur"],
-            "Samastipur": ["Samastipur", "Kalyanpur", "Warisnagar", "Shivaji Nagar", "Khanpur", "Pusa", "Tajpur", "Morwa", "Sarairanjan", "Mohiuddin Nagar", "Mohanpur", "Dalsinghsarai", "Ujiarpur", "Bibhutipur", "Rosera", "Hasanpur", "Bithan", "Singhia", "Patori"],
-            "Saran": ["Chapra", "Manjhi", "Dighwara", "Rivilganj", "Baniapur", "Jalalpur", "Sonepur", "Garkha", "Nagra", "Marhaura", "Amnaur", "Taraiya", "Isuapur", "Mashrakh", "Panapur", "Parsa", "Maker", "Dariapur"],
-            "Sheikhpura": ["Sheikhpura", "Barbigha", "Ariari", "Chewara", "Ghatkusumbha", "Sheikhopur Sarai"],
-            "Sheohar": ["Sheohar", "Tariyani", "Dumri Katsari", "Purnahiya", "Piprarhi"],
-            "Sitamarhi": ["Sitamarhi", "Dumra", "Runnisaidpur", "Belsand", "Parsauni", "Rigao", "Majorganj", "Suppi", "Bairgania", "Nanpur",
+            "Madhepura": ["Madhepura", "Murliganj", "Gwalpara", "Bihariganj", "Chausa", "Udakishunganj"],
+            "Madhubani": ["Madhubani", "Rajnagar", "Pandaul", "Jhanjharpur", "Madhepur", "Jainagar", "Benipatti"],
+            "Munger": ["Munger Sadar", "Jamalpur", "Bariarpur", "Dharhara", "Kharagpur", "Tarapur"],
+            "Muzaffarpur": ["Muzaffarpur Sadar", "Kanti", "Motipur", "Paroo", "Saraiya", "Minapur", "Bochahan"],
+            "Nalanda": ["Bihar Sharif", "Rahuia", "Noorsarai", "Harnaut", "Chandi", "Rajgir", "Hilsa", "Islampur"],
+            "Nawada": ["Nawada", "Hisua", "Akbarpur", "Govindpur", "Rajauli", "Sirdala", "Roh", "Warisaliganj"],
+            "Patna": ["Patna Sadar", "Phulwari Sharif", "Fatuha", "Bakhtiarpur", "Bihta", "Danapur", "Paliganj", "Masaurhi"],
+            "Purnia": ["Purnia East", "Kasba", "Banmankhi", "Dhamdaha", "Barhara", "Rupa
