@@ -3,73 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ग्राम सेवा - बिहार डिजिटल पोर्टल</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
-        header { background: #1a5276; color: white; padding: 20px; text-align: center; }
-        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
-        
-        /* फॉर्म स्टाइल */
-        .complaint-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        h2 { color: #1a5276; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        
-        label { display: block; margin: 15px 0 5px; font-weight: bold; color: #333; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
-        
-        .submit-btn { background: #e74c3c; color: white; border: none; padding: 15px 25px; border-radius: 6px; cursor: pointer; width: 100%; font-size: 18px; font-weight: bold; margin-top: 20px; }
-        .submit-btn:hover { background: #c0392b; }
-        
-        .contact-list { margin-top: 40px; background: #d5dbdb; padding: 20px; border-radius: 10px; font-size: 14px; }
-    </style>
+    <title>मेरी सिंपल वेबसाइट</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>ग्राम विकास एवं शिकायत पोर्टल (बिहार)</h1>
-    <p>अपनी समस्या सीधे DM या SP ऑफिस तक पहुँचाएँ</p>
-</header>
+    <nav>
+        <div class="logo">MyBrand</div>
+        <ul>
+            <li><a href="#">होम</a></li>
+            <li><a href="#">बारे में</a></li>
+            <li><a href="#">संपर्क</a></li>
+        </ul>
+    </nav>
 
-<div class="container">
-    <div class="complaint-box">
-        <h2>📝 शिकायत पंजीकरण फॉर्म</h2>
-        
-        <form action="https://formspree.io/f/xojyoqnn" method="POST">
-            
-            <label>आपका पूरा नाम:</label>
-            <input type="text" name="User_Name" placeholder="अपना नाम लिखें" required>
+    <header>
+        <h1>मेरी पहली वेबसाइट में आपका स्वागत है</h1>
+        <p>यह एक बहुत ही सरल HTML और CSS से बनी वेबसाइट है।</p>
+        <button onclick="showAlert()">क्लिक करें</button>
+    </header>
 
-            <label>अपना जिला चुनें (बिहार):</label>
-            <select name="District" required>
-                <option value="">-- जिला चुनें --</option>
-                <option value="Patna">पटना (Patna)</option>
-                <option value="Gaya">गया (Gaya)</option>
-                <option value="Muzaffarpur">मुजफ्फरपुर (Muzaffarpur)</option>
-                <option value="Siwan">सीवान (Siwan)</option>
-                <option value="Saran">सारण (Saran)</option>
-                </select>
-
-            <label>शिकायत का विभाग:</label>
-            <select name="Department" required>
-                <option value="DM_Office">जिलाधिकारी (DM Office) - विकास/जमीन/पेंशन</option>
-                <option value="SP_Office">पुलिस अधीक्षक (SP Office) - सुरक्षा/क्राइम</option>
-                <option value="Electricity">बिजली विभाग</option>
-            </select>
-
-            <label>मोबाइल नंबर:</label>
-            <input type="tel" name="Mobile" placeholder="अपना 10 अंकों का नंबर" required>
-
-            <label>शिकायत का विवरण:</label>
-            <textarea name="Message" rows="5" placeholder="अपनी समस्या के बारे में विस्तार से लिखें..." required></textarea>
-
-            <button type="submit" class="submit-btn">शिकायत दर्ज करें</button>
-        </form>
-    </div>
-
-    <div class="contact-list">
-        <h3>💡 जरूरी सूचना:</h3>
-        <p>यह पोर्टल आपकी शिकायतों को संकलित कर संबंधित विभाग को ईमेल द्वारा प्रेषित करने में मदद करता है। आपातकालीन स्थिति में कृपया सीधे <b>112</b> पर कॉल करें।</p>
-    </div>
-</div>
-
+    <script src="script.js"></script>
 </body>
 </html>
+/* बेसिक सेटिंग */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* नेविगेशन बार */
+nav {
+    background: #333;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* मुख्य कंटेंट */
+header {
+    text-align: center;
+    padding: 100px 20px;
+    background: white;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #218838;
+}
+function showAlert() {
+    alert("नमस्ते! आपने बटन पर क्लिक किया।");
+}
